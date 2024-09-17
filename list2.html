@@ -1,0 +1,42 @@
+<title>Tab 2</title>
+<meta charset="utf-8" />
+<table style="border: 2px solid rgb(0, 0, 0);">
+    <thead>
+    <tr>
+        <th style="border: 2px solid rgb(0, 0, 0);">VIN</th>
+        <th style="border: 2px solid rgb(0, 0, 0);">TECHNICAL INSPECTION</th>
+        <th style="border: 2px solid rgb(0, 0, 0);">EDIT</th>
+        <th style="border: 2px solid rgb(0, 0, 0);">DELETE</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <?php
+        foreach($table2 as $row) { ?>
+    <html>
+    <tr>
+    </html>
+    <?php foreach($row as $i){?>
+    <html>
+    <td style="border: 2px solid rgb(0, 0, 0);"> <?php echo ($i); ?> </td>
+    <?php } ?>
+    <td style="border: 2px solid rgb(0, 0, 0);">
+        <form method="POST" action="form.php?action=updateData2&VIN_KMS=<?php echo $row[0];?>&DATE_KMS=<?php echo $row[1];?>&N=<?php echo key($table2);?>&list=list2">
+            <button> EDIT </button> </p>
+        </form>
+    </td>
+    <td style="border: 2px solid rgb(0, 0, 0);">
+        <form method="POST" action="index.php?action=deleteData&N=<?php echo key($table2);?>">
+            <?php next($table2);?>
+            <button> DELETE </button> </p>
+        </form>
+    </td>
+    </tr>
+    <?php } ?>
+    </html>
+    </tbody>
+</table>
+<form method="POST" action="index.php?action=addLineToCsv&N=<?php echo key($table1);?>">
+    <?php next($table1);?>
+    <button style="width: 500px; height: 30px;"> Addline </button> </p>
+</form>
